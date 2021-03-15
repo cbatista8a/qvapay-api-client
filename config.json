@@ -1,0 +1,10 @@
+{
+  "apiPackage": "Api",
+  "invokerPackage": "QvaPay",
+  "apis": "QvaPay",
+  "artifactVersion": "1.0.0",
+  "packageName": "QvaPay",
+  "modelPackage": "QvaPay",
+  "srcBasePath": "src",
+  "enablePostProcessFile": true
+}

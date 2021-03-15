@@ -1,0 +1,159 @@
+openapi: 3.0.0
+servers:
+  - url: 'https://qvapay.com/api/v1'
+info:
+  description: QvaPay PHP Api Client
+  version: 1.0.0
+  title: Qvapay
+  license:
+    name: Apache-2.0
+    url: 'https://www.apache.org/licenses/LICENSE-2.0.html'
+paths:
+  /info:
+    get:
+      summary: Autenticación vía API
+      description: Todos los endpoints de QvaPay requieren obligatoriamente el acceso con un app_id y app_secret vía parámetros GET, POST o cabeceras.
+      operationId: auth
+      parameters:
+        - name: app_id
+          in: query
+          description: App ID
+          required: true
+          schema:
+            type: string
+        - name: app_secret
+          in: query
+          description: App Secret
+          required: true
+          schema:
+            type: string
+      responses:
+        '200':
+          description: successful operation
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ApiResponse'
+        '400':
+          description: Invalid ID value
+      
+  /create_invoice:
+    get:
+      summary: Crear factura de pago
+      description: >-
+        Puede utilizar este endpoint para generar una dirección de pago QvaPay y solicitar a sus clientes que le paguen por un producto o servicio asociado a una aplicación de la plataforma.
+      operationId: invoice
+      parameters:
+        - name: app_id
+          in: query
+          description: App ID
+          required: true
+          schema:
+            type: string
+        - name: app_secret
+          in: query
+          description: App Secret
+          required: true
+          schema:
+            type: string
+        - name: amount
+          in: query
+          description: Cantidad de dinero a recibir (en dólares y con 2 decimales)
+          required: true
+          schema:
+            type: number
+        - name: description
+          in: query
+          description: Descripción de la factura a generar, útil para brindar información al pagador. (No más de 300 caracteres)
+          required: true
+          schema:
+            type: string
+        - name: signed
+          in: query
+          description: Generación de una URL firmada o no (URL firmadas vencen a los 30 minutos, aportando más seguridad o caducidad)
+          required: true
+          schema:
+            type: boolean
+        - name: remote_id
+          in: query
+          description: ID de factura en el sistema remoto (no requerido)
+          required: false
+          schema:
+            type: string
+      responses:
+        '200':
+          description: successful operation
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ApiResponse'
+      
+  /transactions:
+    get:
+      summary: Obtener Transacciones
+      description: Puede solicitar el listado completo de operaciones y/o transacciones realizadas por su aplicación de QvaPay. Puede incluso paginar los resultados entregados. (Registro de 50 ítems por solicitud)
+      operationId: transactions
+      parameters:
+        - name: app_id
+          in: query
+          description: App ID
+          required: true
+          schema:
+            type: string
+        - name: app_secret
+          in: query
+          description: App Secret
+          required: true
+          schema:
+            type: string
+      responses:
+        '200':
+          description: successful operation
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ApiResponse'
+        '400':
+          description: Invalid ID supplied
+        '404':
+          description: url not found
+      
+  /balance:
+    get:
+      summary: Consultar saldo QvaPay
+      description: El balance de cuenta QvaPay te permitirá conocer el saldo actual para realizar operaciones de compras o transacciones.
+      operationId: balance
+      parameters:
+        - name: app_id
+          in: query
+          description: App ID
+          required: true
+          schema:
+            type: string
+        - name: app_secret
+          in: query
+          description: App Secret
+          required: true
+          schema:
+            type: string
+      responses:
+        '200':
+          description: successful operation
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ApiResponse'
+      
+externalDocs:
+  description: Find out more about QvaPay
+  url: 'https://qvapay.com/docs/1.0/overview'
+components:
+  schemas:
+    ApiResponse:
+      title: Objeto Reponse
+      description: Todas las solicitudes API a QvaPay devuelven un objeto Response con los datos formateados en json
+      type: array
+      items:
+        type: string
+        
+    
