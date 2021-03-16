@@ -27,7 +27,7 @@
  * Do not edit the class manually.
  */
 
-namespace QvaPay\QvaPay;
+namespace QvaPay;
 
 /**
  * Interface abstracting model access.

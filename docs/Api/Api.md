@@ -1,13 +1,13 @@
-# QvaPay\DefaultApi
+# QvaPay
 
 All URIs are relative to https://qvapay.com/api/v1.
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**auth()**](DefaultApi.md#auth) | **GET** /info | Autenticación vía API
-[**balance()**](DefaultApi.md#balance) | **GET** /balance | Consultar saldo QvaPay
-[**invoice()**](DefaultApi.md#invoice) | **GET** /create_invoice | Crear factura de pago
-[**transactions()**](DefaultApi.md#transactions) | **GET** /transactions | Obtener Transacciones
+[**auth()**](Api.md#auth) | **GET** /info | Autenticación vía API
+[**balance()**](Api.md#balance) | **GET** /balance | Consultar saldo QvaPay
+[**invoice()**](Api.md#invoice) | **GET** /create_invoice | Crear factura de pago
+[**transactions()**](Api.md#transactions) | **GET** /transactions | Obtener Transacciones
 
 
 ## `auth()`
@@ -28,7 +28,7 @@ require_once(__DIR__ . '/vendor/autoload.php');
 
 
 
-$apiInstance = new QvaPay\Api\DefaultApi(
+$apiInstance = new QvaPay\Api(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client()
@@ -40,7 +40,7 @@ try {
     $result = $apiInstance->auth($app_id, $app_secret);
     print_r($result);
 } catch (Exception $e) {
-    echo 'Exception when calling DefaultApi->auth: ', $e->getMessage(), PHP_EOL;
+    echo 'Exception when calling Api->auth: ', $e->getMessage(), PHP_EOL;
 }
 ```
 
@@ -86,7 +86,7 @@ require_once(__DIR__ . '/vendor/autoload.php');
 
 
 
-$apiInstance = new QvaPay\Api\DefaultApi(
+$apiInstance = new QvaPay\Api(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client()
@@ -98,7 +98,7 @@ try {
     $result = $apiInstance->balance($app_id, $app_secret);
     print_r($result);
 } catch (Exception $e) {
-    echo 'Exception when calling DefaultApi->balance: ', $e->getMessage(), PHP_EOL;
+    echo 'Exception when calling Api->balance: ', $e->getMessage(), PHP_EOL;
 }
 ```
 
@@ -144,7 +144,7 @@ require_once(__DIR__ . '/vendor/autoload.php');
 
 
 
-$apiInstance = new QvaPay\Api\DefaultApi(
+$apiInstance = new QvaPay\Api(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client()
@@ -160,7 +160,7 @@ try {
     $result = $apiInstance->invoice($app_id, $app_secret, $amount, $description, $signed, $remote_id);
     print_r($result);
 } catch (Exception $e) {
-    echo 'Exception when calling DefaultApi->invoice: ', $e->getMessage(), PHP_EOL;
+    echo 'Exception when calling Api->invoice: ', $e->getMessage(), PHP_EOL;
 }
 ```
 
@@ -210,7 +210,7 @@ require_once(__DIR__ . '/vendor/autoload.php');
 
 
 
-$apiInstance = new QvaPay\Api\DefaultApi(
+$apiInstance = new QvaPay\Api(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client()
@@ -222,7 +222,7 @@ try {
     $result = $apiInstance->transactions($app_id, $app_secret);
     print_r($result);
 } catch (Exception $e) {
-    echo 'Exception when calling DefaultApi->transactions: ', $e->getMessage(), PHP_EOL;
+    echo 'Exception when calling Api->transactions: ', $e->getMessage(), PHP_EOL;
 }
 ```
 

@@ -11,23 +11,9 @@ PHP 7.2 and later.
 
 ### Composer
 
-To install the bindings via [Composer](https://getcomposer.org/), add the following to `composer.json`:
+To install the bindings via [Composer](https://getcomposer.org/).
 
-```json
-{
-  "repositories": [
-    {
-      "type": "vcs",
-      "url": "https://github.com/cbatista8a/qvapay-api-client.git"
-    }
-  ],
-  "require": {
-    "cbatista8a/qvapay-api-client": "*@dev"
-  }
-}
-```
-
-Then run `composer install`
+Run `composer require cbatista8a/qvapay-api-client`
 
 ### Manual Installation
 
@@ -49,7 +35,7 @@ require_once(__DIR__ . '/vendor/autoload.php');
 
 
 
-$apiInstance = new QvaPay\Api\DefaultApi(
+$apiInstance = new QvaPay\Api(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client()
@@ -61,7 +47,7 @@ try {
     $result = $apiInstance->auth($app_id, $app_secret);
     print_r($result);
 } catch (Exception $e) {
-    echo 'Exception when calling DefaultApi->auth: ', $e->getMessage(), PHP_EOL;
+    echo 'Exception when calling Api->auth: ', $e->getMessage(), PHP_EOL;
 }
 
 ```
@@ -72,10 +58,10 @@ All URIs are relative to *https://qvapay.com/api/v1*
 
 Class | Method | HTTP request | Description
 ------------ | ------------- | ------------- | -------------
-*DefaultApi* | [**auth**](docs/Api/DefaultApi.md#auth) | **GET** /info | Autenticación vía API
-*DefaultApi* | [**balance**](docs/Api/DefaultApi.md#balance) | **GET** /balance | Consultar saldo QvaPay
-*DefaultApi* | [**invoice**](docs/Api/DefaultApi.md#invoice) | **GET** /create_invoice | Crear factura de pago
-*DefaultApi* | [**transactions**](docs/Api/DefaultApi.md#transactions) | **GET** /transactions | Obtener Transacciones
+*Api* | [**auth**](docs/Api/Api.md#auth) | **GET** /info | Autenticación vía API
+*Api* | [**balance**](docs/Api/Api.md#balance) | **GET** /balance | Consultar saldo QvaPay
+*Api* | [**invoice**](docs/Api/Api.md#invoice) | **GET** /create_invoice | Crear factura de pago
+*Api* | [**transactions**](docs/Api/Api.md#transactions) | **GET** /transactions | Obtener Transacciones
 
 ## Models
 

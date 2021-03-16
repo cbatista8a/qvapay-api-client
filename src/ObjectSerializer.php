@@ -29,7 +29,7 @@
 
 namespace QvaPay;
 
-use QvaPay\QvaPay\ModelInterface;
+use ModelInterface;
 
 /**
  * ObjectSerializer Class Doc Comment

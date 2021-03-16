@@ -1,6 +1,6 @@
 <?php
 /**
- * DefaultApi
+ * Api
  * PHP version 7.2
  *
  * @category Class
@@ -26,7 +26,7 @@
  * Do not edit the class manually.
  */
 
-namespace QvaPay\Api;
+namespace QvaPay;
 
 use GuzzleHttp\Client;
 use GuzzleHttp\ClientInterface;
@@ -34,20 +34,20 @@ use GuzzleHttp\Exception\RequestException;
 use GuzzleHttp\Psr7\MultipartStream;
 use GuzzleHttp\Psr7\Request;
 use GuzzleHttp\RequestOptions;
-use QvaPay\ApiException;
+use QvaPayException;
 use QvaPay\Configuration;
 use QvaPay\HeaderSelector;
 use QvaPay\ObjectSerializer;
 
 /**
- * DefaultApi Class Doc Comment
+ * Api Class Doc Comment
  *
  * @category Class
  * @package  QvaPay
  * @author   Carlos Batista
  * @link     https://github.com/cbatista8a/
  */
-class DefaultApi
+class Api
 {
     /**
      * @var ClientInterface
@@ -123,7 +123,7 @@ class DefaultApi
      * @param  string $app_id App ID (required)
      * @param  string $app_secret App Secret (required)
      *
-     * @throws \QvaPay\ApiException on non-2xx response
+     * @throws \QvaPayException on non-2xx response
      * @throws \InvalidArgumentException
      * @return string[]
      */
@@ -141,7 +141,7 @@ class DefaultApi
      * @param  string $app_id App ID (required)
      * @param  string $app_secret App Secret (required)
      *
-     * @throws \QvaPay\ApiException on non-2xx response
+     * @throws \QvaPayException on non-2xx response
      * @throws \InvalidArgumentException
      * @return array of string[], HTTP status code, HTTP response headers (array of strings)
      */
@@ -415,7 +415,7 @@ class DefaultApi
      * @param  string $app_id App ID (required)
      * @param  string $app_secret App Secret (required)
      *
-     * @throws \QvaPay\ApiException on non-2xx response
+     * @throws \QvaPayException on non-2xx response
      * @throws \InvalidArgumentException
      * @return string[]
      */
@@ -433,7 +433,7 @@ class DefaultApi
      * @param  string $app_id App ID (required)
      * @param  string $app_secret App Secret (required)
      *
-     * @throws \QvaPay\ApiException on non-2xx response
+     * @throws \QvaPayException on non-2xx response
      * @throws \InvalidArgumentException
      * @return array of string[], HTTP status code, HTTP response headers (array of strings)
      */
@@ -711,7 +711,7 @@ class DefaultApi
      * @param  bool $signed Generación de una URL firmada o no (URL firmadas vencen a los 30 minutos, aportando más seguridad o caducidad) (required)
      * @param  string $remote_id ID de factura en el sistema remoto (no requerido) (optional)
      *
-     * @throws \QvaPay\ApiException on non-2xx response
+     * @throws \QvaPayException on non-2xx response
      * @throws \InvalidArgumentException
      * @return string[]
      */
@@ -733,7 +733,7 @@ class DefaultApi
      * @param  bool $signed Generación de una URL firmada o no (URL firmadas vencen a los 30 minutos, aportando más seguridad o caducidad) (required)
      * @param  string $remote_id ID de factura en el sistema remoto (no requerido) (optional)
      *
-     * @throws \QvaPay\ApiException on non-2xx response
+     * @throws \QvaPayException on non-2xx response
      * @throws \InvalidArgumentException
      * @return array of string[], HTTP status code, HTTP response headers (array of strings)
      */
@@ -1081,7 +1081,7 @@ class DefaultApi
      * @param  string $app_id App ID (required)
      * @param  string $app_secret App Secret (required)
      *
-     * @throws \QvaPay\ApiException on non-2xx response
+     * @throws \QvaPayException on non-2xx response
      * @throws \InvalidArgumentException
      * @return string[]
      */
@@ -1099,7 +1099,7 @@ class DefaultApi
      * @param  string $app_id App ID (required)
      * @param  string $app_secret App Secret (required)
      *
-     * @throws \QvaPay\ApiException on non-2xx response
+     * @throws \QvaPayException on non-2xx response
      * @throws \InvalidArgumentException
      * @return array of string[], HTTP status code, HTTP response headers (array of strings)
      */
